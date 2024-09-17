@@ -11,7 +11,7 @@ Projeto de testes do [Transferegov](https://idp.transferegov.sistema.gov.br/idp/
 
     `pip install -r requirements.txt`
 
-3. Inicialize a biblioteca do Browser:
+3. Inicialize a biblioteca do Browser
 
     `rfbrowser init`
 
