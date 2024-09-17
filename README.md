@@ -21,7 +21,7 @@ Recomenda-se utilizar o VS Code e instalar a extensão **Robot Framework Languag
 
 ## Executando o projeto
 
-Antes de executar os testes é necessário configurar as credencias de acesso ao SDJ. Crie o arquivo `credentials.py` na pasta `resources` definindo estas variáveis. Substitua os valores pelas suas credenciais.
+Antes de executar os testes é necessário configurar as credencias de acesso ao Transferegov. Crie o arquivo `credentials.py` na pasta `resources` definindo estas variáveis. Substitua os valores pelas suas credenciais.
 ```python
 USERNAME='*******'
 PASSWORD='*******'
