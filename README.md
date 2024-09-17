@@ -1,6 +1,6 @@
 # Testes do Transferegov com RobotFramework
 
-Projeto de testes do SDJ utilizando [RobotFramework](https://idp.transferegov.sistema.gov.br/idp/).
+Projeto de testes do Transferegov utilizando [RobotFramework](https://idp.transferegov.sistema.gov.br/idp/).
 
 ## Procedimento para instalação
 1. Pré-requisito
