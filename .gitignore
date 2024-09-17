@@ -1,0 +1,10 @@
+.venv
+__pycache__
+resources/credentials.py
+results
+log.html
+output.xml
+report.html
+playwright-log.txt
+interactive_console_output.xml
+browser

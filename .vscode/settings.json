@@ -1,0 +1,9 @@
+{
+  "robot.variables": {
+    "BROWSER": "chromium",
+    "HEADLESS": "False"
+  },
+
+  "robot.lint.ignoreVariables": ["USERNAME", "PASSWORD"],
+  "robot.pythonpath": ["${workspaceFolder}"]
+}
