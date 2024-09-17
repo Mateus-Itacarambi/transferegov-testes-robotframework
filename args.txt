@@ -1,0 +1,3 @@
+--pythonpath .
+--variablefile resources/credentials.py
+--outputdir results
