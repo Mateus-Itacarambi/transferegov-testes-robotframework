@@ -10,7 +10,8 @@ Test Teardown       Close Context
 Consultar Instrumentos/Pré-Instrumentos
     Open Excel Document    docs/monitorar_andamento_de_convenio.xlsx    1
     Given Tela principal está aberta
-   @{value}=    Read Excel Column    1
+    ${counter}=    Set Variable    2
+    @{value}=    Read Excel Column    1
     FOR    ${element}    IN   @{value}
         Continue For Loop If    '${element}' == 'Convênio'
         When Menu Execução foi clicado
@@ -23,6 +24,8 @@ Consultar Instrumentos/Pré-Instrumentos
         And Clicar em Listar Anexos Execução
         And Tela com listagem de anexos está aberta
         ${qtd_anexos}=    Capturar quantidade de itens
-        Log To Console    ${qtd_anexos}
+        Inserir quantidade de itens - início    ${counter}    3    ${qtd_anexos}
+        ${counter}=    Evaluate    ${counter} + 1
+        Log To Console    ${counter}    
         Exit For Loop
     END

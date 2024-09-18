@@ -43,3 +43,8 @@ Capturar quantidade de itens
     ${qtd_anexos}=    Get From List    ${words}    4
     ${qtd_anexos}=    Replace String    ${qtd_anexos}    (    ${EMPTY}
     Return From Keyword    ${qtd_anexos}
+
+Inserir quantidade de itens - início
+    [Arguments]    ${row}    ${col}    ${value}
+    Write Excel Cell    ${row}    ${col}    ${value}
+    Save Excel Document    docs/monitorar_andamento_de_convenio.xlsx
