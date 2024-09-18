@@ -1,9 +1,5 @@
 *** Settings ***
-Library    Browser
-Library    ExcelLibrary.py
-
 Resource       ../resources/keywords/monitoramento.resource
-
 
 Suite Setup         New Browser    browser=${BROWSER}    headless=${HEADLESS}
 Suite Teardown      Close Browser
@@ -12,21 +8,21 @@ Test Teardown       Close Context
 
 *** Test Cases ***
 Consultar Instrumentos/Pré-Instrumentos
-    Open Excel Document    docs/monitorar_andamento_de_convenio.xlsx    1    
+    Open Excel Document    docs/monitorar_andamento_de_convenio.xlsx    1
+    Given Tela principal está aberta
    @{value}=    Read Excel Column    1
-      Log To Console   Valores lidos da coluna: ${value}
     FOR    ${element}    IN   @{value}
-        Continue For Loop If    '${element}' == 'Convênio' 
-        Given Tela principal está aberta
+        Continue For Loop If    '${element}' == 'Convênio'
         When Menu Execução foi clicado
         And Tela de consultar instrumentos/pré-instrumentos está aberta
         And Informar número instrumento    ${element}
         And Clicar em Consultar
-        And Clicar sobre o número do instrumento
+        And Clicar sobre o número do instrumento    ${element}
         And Clicar em Plano de Trabalho
         And Clicar em Anexos
         And Clicar em Listar Anexos Execução
-        Then Tela com listagem de anexos está aberta
-        Close Browser    
+        And Tela com listagem de anexos está aberta
+        ${qtd_anexos}=    Capturar quantidade de itens
+        Log To Console    ${qtd_anexos}
+        Exit For Loop
     END
-#Resolver o por que do loop nao estar funcionando

@@ -1,13 +1,12 @@
 *** Settings ***
 Library    Browser
+Library    Collections
 Resource   ../login.resource
 Resource   ../variables/monitoramento.robot
 
 *** Keywords ***
 Tela principal está aberta
     Transfere Gov está aberto
-    Menu Execução foi clicado
-    Tela de consultar instrumentos/pré-instrumentos está aberta
 
 Menu Execução foi clicado 
     Click  //div[@class='button menu'][contains(.,'Execução')]
@@ -23,7 +22,8 @@ Clicar em Consultar
     Click   (//input[@value='Consultar'])[1]
 
 Clicar sobre o número do instrumento
-    Click    //a[@href='/voluntarias/ConsultarProposta/ResultadoDaConsultaDeConvenioSelecionarConvenio.do?idConvenio=681504&destino=']
+    [Arguments]    ${n_covenio}
+    Click    //div[@id="instrumentoId"]/a[contains(text(), "${n_covenio}")]
     
 Clicar em Plano de Trabalho
     Click    (//span[contains(.,'Plano de Trabalho')])[2]
@@ -36,3 +36,10 @@ Clicar em Listar Anexos Execução
 
 Tela com listagem de anexos está aberta
     Wait For Elements State    //h3[contains(.,'Listagem de Anexos')]
+
+Capturar quantidade de itens
+    ${qtd_anexos}=    Get Text    //div[@id="listaAnexos"]/span[1]
+    @{words}=    Split String    ${qtd_anexos}
+    ${qtd_anexos}=    Get From List    ${words}    4
+    ${qtd_anexos}=    Replace String    ${qtd_anexos}    (    ${EMPTY}
+    Return From Keyword    ${qtd_anexos}
