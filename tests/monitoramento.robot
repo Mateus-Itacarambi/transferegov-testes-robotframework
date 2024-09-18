@@ -43,7 +43,7 @@ Monitoramento Andamento de Convênio
 
 #ATUALIZAR QUANTIDADE DE ANEXOS ATUAL E SITUAÇÃO ATUAL
 Monitoramento Andamento de Convênio - Atualizar
-    Open Excel Document    ${doc_excel}    2
+    Open Excel Document    ${doc_excel}    1
     Tela principal está aberta
     ${counter}=    Set Variable    2
     @{value}=    Read Excel Column    1

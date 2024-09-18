@@ -45,4 +45,5 @@ Capturar quantidade de itens
         ${qtd_anexos}=    Get From List    ${words}    4
         ${qtd_anexos}=    Replace String    ${qtd_anexos}    (    ${EMPTY}
     END
+    ${qtd_anexos}=    Convert To Integer    ${qtd_anexos}
     Return From Keyword    ${qtd_anexos}
