@@ -7,9 +7,11 @@ Menu Acomp. e Fiscalização foi clicado
 
 #SUB MENU ESCLARECIMENTOS
 Clicar em esclarecimentos
+    Wait For Elements State    (//a[contains(.,'Esclarecimentos')])[1]    visible    1 minutes
     Click  (//a[contains(.,'Esclarecimentos')])[1]
     
 Capturar situação
+    Wait For Elements State    //div[@id="esclarecimentos"]/span[1]    visible    1 minutes
     ${qtdPages}=    Get Text    //div[@id="esclarecimentos"]/span[1]
     @{words}=    Split String    ${qtdPages}
     ${qtdPages}=    Get From List    ${words}    3

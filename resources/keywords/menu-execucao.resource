@@ -13,6 +13,7 @@ Clicar em consultar instrumentos/pré-instrumentos
 
 Informar número instrumento
     [Arguments]    ${convenio}
+    Wait For Elements State    input#consultarNumeroConvenio    visible    1 minutes
     Fill Text    input#consultarNumeroConvenio    ${convenio}
     
 Clicar em Consultar
@@ -20,15 +21,19 @@ Clicar em Consultar
     
 Clicar sobre o número do instrumento
     [Arguments]    ${n_covenio}
+    Wait For Elements State    //div[@id="instrumentoId"]/a[contains(text(), "${n_covenio}")]    visible    1 minutes
     Click    //div[@id="instrumentoId"]/a[contains(text(), "${n_covenio}")]
 
 Clicar em Plano de Trabalho
+    Wait For Elements State    (//span[contains(.,'Plano de Trabalho')])[2]    visible    1 minutes
     Click    (//span[contains(.,'Plano de Trabalho')])[2]
 
 Clicar em Anexos
+    Wait For Elements State    (//span[contains(.,'Anexos')])[2]    visible    1 minutes
     Click    (//span[contains(.,'Anexos')])[2]
 
 Clicar em Listar Anexos Execução
+    Wait For Elements State    //input[contains(@name,'listarAnexosGenericosAnexosExibirAnexosExecucaoForm')]    visible    1 minutes
     Click    //input[contains(@name,'listarAnexosGenericosAnexosExibirAnexosExecucaoForm')]
 
 Tela com listagem de anexos está aberta
