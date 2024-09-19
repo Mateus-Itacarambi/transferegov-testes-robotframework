@@ -5,6 +5,8 @@ Library     Collections
 Library     DateTime
 Library     ExcelLibrary
 
+Variables    credentials.py
+
 *** Keywords ***
 Tela principal está aberta
     Transfere Gov está aberto
