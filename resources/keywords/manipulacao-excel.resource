@@ -2,7 +2,7 @@
 Resource    ../common.resource
 
 *** Variables ***
-${doc_excel}    ../docs/monitorar_andamento_de_convenio.xlsx
+${doc_excel}    /docs/monitorar_andamento_de_convenio.xlsx
 
 *** Keywords ***
 Inserir quantidade de itens - início
