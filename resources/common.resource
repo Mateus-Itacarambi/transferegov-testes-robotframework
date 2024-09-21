@@ -12,7 +12,8 @@ Tela principal está aberta
     Transfere Gov está aberto
 
 Transfere Gov está aberto
-    New Page    https://idp.transferegov.sistema.gov.br/
+    New Page    https://idp.transferegov.sistema.gov.br/    load
+    Set Browser Timeout    5 minutes
     Login
     
 Login
