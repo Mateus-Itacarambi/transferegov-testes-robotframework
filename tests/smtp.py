@@ -7,11 +7,15 @@ from email import encoders
 from openpyxl import load_workbook
 
 # Carregar variáveis de ambiente
-EMAIL_SENDER = os.getenv("letigy78@gmail.com")
-EMAIL_PASSWORD = os.getenv("Leticia23@@")
+EMAIL_SENDER = "transferegovrobot@gmail.com"
+EMAIL_PASSWORD = "qsum wntr mlta uegl"
+
+# Verificar se as variáveis de ambiente estão corretamente carregadas
+if not EMAIL_SENDER or not EMAIL_PASSWORD:
+    raise ValueError("As variáveis de ambiente EMAIL_SENDER e EMAIL_PASSWORD não foram definidas corretamente.")
 
 # Configurações do e-mail
-EMAIL_RECEIVER = "mateusdesouzaitacarambi@gmail.com"
+EMAIL_RECEIVER = "letigy78@gmail.com"
 SUBJECT = "Excel Table"
 BODY = "Please find the attached Excel table."
 EXCEL_FILE_PATH = "../docs/monitorar_andamento_de_convenio.xlsx"
@@ -43,17 +47,21 @@ def send_email_with_attachment():
         msg.attach(part)
     
     # Conexão com o servidor SMTP
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login(EMAIL_SENDER, EMAIL_PASSWORD)
+    try:
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login(EMAIL_SENDER, EMAIL_PASSWORD)
+        
+        # Enviando o e-mail
+        text = msg.as_string()
+        server.sendmail(EMAIL_SENDER, EMAIL_RECEIVER, text)
+        print(f"E-mail enviado para {EMAIL_RECEIVER} com sucesso!")
     
-    # Enviando o e-mail
-    text = msg.as_string()
-    server.sendmail(EMAIL_SENDER, EMAIL_RECEIVER, text)
+    except Exception as e:
+        print(f"Falha ao enviar o e-mail: {e}")
     
-    # Encerrar conexão com o servidor
-    server.quit()
-    print(f"E-mail enviado para {EMAIL_RECEIVER} com sucesso!")
+    finally:
+        server.quit()
 
 if __name__ == "__main__":
     read_excel(EXCEL_FILE_PATH)
