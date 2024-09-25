@@ -26,10 +26,13 @@ Monitoramento Andamento de Convênio - Atualizar
         Clicar sobre o número do instrumento    ${element}
         Clicar em Plano de Trabalho
         Clicar em Anexos
-        Clicar em Listar Anexos Execução
-        Tela com listagem de anexos está aberta
-        ${qtd_anexos}=    Capturar quantidade de itens
-        Inserir quantidade de itens - atual    ${counter}    ${qtd_anexos}
+        ${botao}=    Botão Listar Anexos Execução Existe?
+        IF    '${botao}' == 'True'
+            Clicar em Listar Anexos Execução
+            Tela com listagem de anexos está aberta
+            ${qtd_anexos}=    Capturar quantidade de itens
+            Inserir quantidade de itens - atual    ${counter}    ${qtd_anexos}
+        END
         Menu Acomp. e Fiscalização foi clicado
         Clicar em esclarecimentos
         ${situacao}=    Capturar situação

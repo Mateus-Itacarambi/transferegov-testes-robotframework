@@ -32,6 +32,11 @@ Clicar em Anexos
     Wait For Elements State    (//span[contains(.,'Anexos')])[2]    visible    1 minutes
     Click    (//span[contains(.,'Anexos')])[2]
 
+Botão Listar Anexos Execução Existe?
+    ${retorno}=    Run Keyword And Return Status    Wait For Elements State    //input[contains(@name,'listarAnexosGenericosAnexosExibirAnexosExecucaoForm')]    visible    1 minutes
+    Log To Console    ${retorno}
+    Return From Keyword    ${retorno}
+
 Clicar em Listar Anexos Execução
     Wait For Elements State    //input[contains(@name,'listarAnexosGenericosAnexosExibirAnexosExecucaoForm')]    visible    1 minutes
     Click    //input[contains(@name,'listarAnexosGenericosAnexosExibirAnexosExecucaoForm')]
